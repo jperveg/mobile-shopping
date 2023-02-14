@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "target": "ES2021",
+      "checkJs": true,
+      "jsx": "react-jsx",
+      "moduleResolution": "node"
+    },
+    "exclude": ["node_modules", "**/node_modules/*"]
+  }

@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+.app-header {
+    background-color: $blue-light;
+    height: 6vh;
+    color:$white;
+    padding: 0.7rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    a {
+        text-decoration: none;
+        font-size: 0.6rem;
+    }
+    &-shopping-cart {
+        height: 100%;
+        position:relative;
+        &-img {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+        &-counter {
+            position: absolute;
+            top: 2.2rem;
+            right: 0;
+            color: $white;
+            background-color: $red;
+            border-radius: 50%;
+            padding: 0 0.2rem;
+        }
+    }
+    &-logo {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 0.7rem;
+        img {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+    }
+}

@@ -1,3 +1,5 @@
+@import './styles/mixins.scss';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  margin: 0;
+  text-align: left
+}
+
+a, p, h1 {
+  color: inherit;
+}
+p {
+  font-size: 1rem;
+}
+
+.flex-centered {
+  @include div-centered;
 }

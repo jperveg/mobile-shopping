@@ -8,7 +8,12 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
@@ -26,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --cache -- './src/**/*.{tsx,ts,js}'",
+    "lint": "eslint --cache -- './src/**/*.{jsx,js}'",
     "lint:fix": "npm run lint -- --fix --quiet"
   },
   "eslintConfig": {
