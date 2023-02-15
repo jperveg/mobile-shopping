@@ -1,8 +1,23 @@
+import { useProductList } from '../../hooks'
+import { ProductListView } from './view'
+
 export const ProductList = () => {
-  // const props = useProductList()
+  const {
+    handleChangeSearchInput,
+    searchText,
+    isFilterActive,
+    products,
+    filteredProducts,
+    handleClickOnProductItem,
+  } = useProductList()
   return (
-    <div>
-      <h1>Product List</h1>
-    </div>
+    <ProductListView
+      handleChangeSearchInput={handleChangeSearchInput}
+      searchText={searchText}
+      isFilterActive={isFilterActive}
+      products={products}
+      filteredProducts={filteredProducts}
+      handleClickOnProductItem={handleClickOnProductItem}
+    />
   )
 }

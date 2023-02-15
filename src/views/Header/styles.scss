@@ -1,13 +1,12 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .app-header {
     background-color: $blue-light;
     height: 6vh;
     color:$white;
     padding: 0.7rem;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @include flexbox($justifyContent: space-between);
     a {
         text-decoration: none;
         font-size: 0.6rem;
@@ -30,9 +29,6 @@
         }
     }
     &-logo {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
         gap: 0.7rem;
         img {
             height: 1.5rem;

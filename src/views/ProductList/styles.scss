@@ -1,0 +1,19 @@
+.app-list-container {
+    height: auto;
+    padding: 0.5rem;
+    &-header-input {
+        width: 20rem;
+    }
+
+    &-body {
+        padding: 3.5rem;
+        &-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1rem 10rem;
+            gap: 2.5rem;
+            max-width: 1100px;
+        }
+    }
+
+}

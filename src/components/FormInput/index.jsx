@@ -7,15 +7,15 @@ const InputTypes = {
 
 export const FormInput = ({
   name,
-  label,
+  label = null,
   value,
   placeholder,
   type = InputTypes.TEXT,
-  disabled,
+  disabled = false,
   onChange,
-  onBlur,
+  onBlur = null,
   autoFocus,
-  error,
+  error = null,
   ...rest
 }) => {
   const inputRef = useRef(null)

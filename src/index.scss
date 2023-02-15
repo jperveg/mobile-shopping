@@ -26,6 +26,31 @@ p {
   font-size: 1rem;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+
+.flex-top {
+  @include flexbox($placeItems: flex-start);
+}
+
+.flex-bottom {
+  @include flexbox($placeItems: flex-end);
+}
+
 .flex-centered {
-  @include div-centered;
+  @include flexbox($placeItems: center, $placeContent: center);
+}
+
+.flex-left {
+  @include flexbox($placeContent: flex-start);
+}
+
+.flex-left-col {
+  @include flexbox($placeContent: flex-start, $direction:column);
+}
+
+.flex-right {
+  @include flexbox($placeContent: flex-end);
 }
