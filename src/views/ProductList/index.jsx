@@ -8,7 +8,6 @@ export const ProductList = () => {
     isFilterActive,
     products,
     filteredProducts,
-    handleClickOnProductItem,
   } = useProductList()
   return (
     <ProductListView
@@ -17,7 +16,6 @@ export const ProductList = () => {
       isFilterActive={isFilterActive}
       products={products}
       filteredProducts={filteredProducts}
-      handleClickOnProductItem={handleClickOnProductItem}
     />
   )
 }

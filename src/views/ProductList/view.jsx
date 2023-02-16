@@ -8,7 +8,6 @@ export const ProductListView = ({
   isFilterActive,
   products,
   filteredProducts,
-  handleClickOnProductItem,
 }) => {
   const productList = isFilterActive ? filteredProducts : products
   console.log(productList)
@@ -20,7 +19,7 @@ export const ProductListView = ({
             name="searchInput"
             onChange={handleChangeSearchInput}
             value={searchText}
-            placeholder="Filter mobiles..."
+            placeholder="Search for mobiles..."
             autoFocus
           />
         </div>
@@ -35,7 +34,6 @@ export const ProductListView = ({
               model={product.model}
               price={product.price}
               imageURL={product.imageURL}
-              handleClickOnProductItem={handleClickOnProductItem}
             />
           ))}
         </div>

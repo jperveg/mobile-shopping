@@ -9,8 +9,8 @@ export const ProductDetailView = (
   handleAddShoppingCart,
   isLoading
 ) => {
-  const optionColors = product?.options.colors
-  const optionStorages = product?.options.storages
+  const optionColors = product?.options?.colors
+  const optionStorages = product?.options?.storages
   return (
     <div className="product-detail-view">
       {isLoading ? (
@@ -34,38 +34,25 @@ export const ProductDetailView = (
               )
             })}
           </div>
-          <div className="product-detail-view-actions">
-            <div>
-              Color:
-              <select name="color">
-                {optionColors.length > 1 ? (
-                  <option value="-1">Select an option</option>
-                ) : (
-                  ''
-                )}
-                {optionColors.map((color) => (
-                  <option key={color.code} value={color.code}>
-                    {color.name}
-                  </option>
-                ))}
-              </select>
+          {optionColors && optionStorages && (
+            <div className="product-detail-view-actions">
+              <div>
+                Color:
+                <select name="color">
+                  {optionColors.length > 1 ? (
+                    <option value="-1">Select an option</option>
+                  ) : (
+                    ''
+                  )}
+                  {optionColors.map((color) => (
+                    <option key={color.code} value={color.code}>
+                      {color.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-            <div>
-              Storage:
-              <select name="storage">
-                {optionStorages.length > 1 ? (
-                  <option value="-1">Select an option</option>
-                ) : (
-                  ''
-                )}
-                {product.options.storages.map((storage) => (
-                  <option key={storage.code} value={storage.code}>
-                    {storage.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
+          )}
         </>
       )}
     </div>

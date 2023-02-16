@@ -6,7 +6,7 @@ import { setupFetcher } from './config/setupFetcher'
 import './index.scss'
 import { Fetcher } from './utils/fetcher'
 
-setupFetcher(() => new Fetcher(config.BASE_URL))
+setupFetcher(() => new Fetcher(config.HOST))
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

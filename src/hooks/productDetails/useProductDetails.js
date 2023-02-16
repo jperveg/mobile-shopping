@@ -18,7 +18,7 @@ export function useProductDetails(productId) {
     useState(false)
 
   const { state, dispatch } = useContext(AppStateContext)
-  const { productDetailsById } = state
+  const { details: productDetailsById } = state
 
   const { fetch, data: product, isLoading } = useRequest(getProductByIdRequest)
 

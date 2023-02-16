@@ -3,7 +3,7 @@ import { FETCH_PRODUCT_LIST_SUCCESS } from 'store/actionTypes'
 
 const initialState = {
   products: [],
-  timestamp: null,
+  expiredTimestamp: null,
 }
 
 const productListReducer = (state = initialState, action) => {

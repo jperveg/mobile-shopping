@@ -17,7 +17,7 @@ export const Header = () => {
       <header className="app-header">
         <div className="flex-left-col">
           <Link to="/">
-            <div className="app-header-logo flex-centered">
+            <div className="app-header-logo flex-centered flex-left">
               <img src={homeLogo} alt="logo" />
               <p>{'Mobile shop'}</p>
             </div>

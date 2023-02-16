@@ -9,8 +9,8 @@ export const PersistProvider = ({ children }) => {
   const { state } = useContext(AppStateContext)
   const [persistedData, setPersistedData] = useState()
   useEffect(() => {
-    localStorage.setItem(config.ROOT_PERSIT, JSON.stringify(state))
-    setPersistedData(JSON.parse(localStorage.getItem(config.ROOT_PERSIT)))
+    localStorage.setItem(config.ROOT_PERSIST, JSON.stringify(state))
+    setPersistedData(JSON.parse(localStorage.getItem(config.ROOT_PERSIST)))
   }, [state])
 
   return (

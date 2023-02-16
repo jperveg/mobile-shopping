@@ -67,8 +67,8 @@ export class Fetcher {
     return JSON.stringify(body)
   }
 
-  async _fetch(method, url, options) {
-    const body = this.resolveBody(options.body)
+  async _fetch(method, url, options = {}) {
+    const body = this.resolveBody(options?.body)
 
     if (
       (!options.headers ||

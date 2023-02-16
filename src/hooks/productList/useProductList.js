@@ -1,5 +1,8 @@
-import { useCallback, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useRequest } from 'hooks/common/useRequest'
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { getAllProductsRequest } from 'api/productsRequests'
+import { AppStateContext } from 'contexts/AppContext'
+import { dateIsAfter } from 'utils/utils'
 
 export const PRODUCTS_LIST = [
   {
@@ -62,13 +65,22 @@ export const PRODUCTS_LIST = [
 
 export const useProductList = () => {
   const [searchText, setSearchText] = useState('')
-  const navigate = useNavigate()
-  const products = PRODUCTS_LIST
+  const { state } = useContext(AppStateContext)
+  const {
+    products: { products: productsFromState, expiredTimestamp },
+  } = state
+  const [products, setProducts] = useState(PRODUCTS_LIST ?? productsFromState)
   // useEffect(() => {
   //   fetch('http://localhost:3001/products')
   //     .then((res) => res.json())
   //     .then((data) => setProductList(data))
   // }, [])
+
+  const {
+    fetch,
+    data: productsFromServer,
+    isLoading,
+  } = useRequest(getAllProductsRequest)
 
   const filteredProducts = useMemo(() => {
     if (searchText && searchText !== '' && products) {
@@ -83,18 +95,24 @@ export const useProductList = () => {
     }
   }, [searchText, products])
 
+  useEffect(() => {
+    if (!products || (products.length && dateIsAfter(expiredTimestamp))) {
+      fetch()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products, expiredTimestamp])
+
+  useEffect(() => {
+    if (productsFromServer && !productsFromServer.length) {
+      setProducts(productsFromServer)
+      // dispatch(fetchedProducts(products))
+    }
+  }, [productsFromServer])
+
   const handleChangeSearchInput = useCallback((e) => {
     const searchText = e.target.value
     setSearchText(searchText)
   }, [])
-
-  const handleClickOnProductItem = useCallback(
-    (id) => {
-      console.log(id)
-      navigate(`/details/${id}`)
-    },
-    [navigate]
-  )
 
   return {
     searchText,
@@ -102,6 +120,6 @@ export const useProductList = () => {
     filteredProducts,
     products,
     handleChangeSearchInput,
-    handleClickOnProductItem,
+    isLoading,
   }
 }

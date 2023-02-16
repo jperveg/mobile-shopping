@@ -5,6 +5,11 @@ const endpoints = {
   getProductById: '/api/product/',
 }
 
+export const getAllProductsRequest = () => {
+  const fetcher = getFetcher()
+  return fetcher.get(`${endpoints.getProducts}`)
+}
+
 export const getProductByIdRequest = (productId) => {
   const fetcher = getFetcher()
   return fetcher.get(`${endpoints.getProductById}${productId}`)
