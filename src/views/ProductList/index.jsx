@@ -1,4 +1,4 @@
-import { useProductList } from '../../hooks'
+import { useProductList } from 'hooks'
 import { ProductListView } from './view'
 
 export const ProductList = () => {

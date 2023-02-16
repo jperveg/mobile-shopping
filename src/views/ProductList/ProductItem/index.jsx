@@ -1,4 +1,4 @@
-import '../../../index.scss'
+import 'index.scss'
 import './styles.scss'
 
 export const ProductItem = ({
@@ -15,19 +15,19 @@ export const ProductItem = ({
       onClick={() => handleClickOnProductItem(id)}
     >
       <div className="app-proudct-item-image flex-centered">
-        <img src={imageURL} alt={model} />
+        <img src={imageURL} alt={model} width={97} height={207} />
       </div>
       <div className="app-proudct-item-content flex-left-col">
         <div className="app-proudct-item-content-info">
-          <strong>{'Marca:'}</strong>
+          <strong>{'Marca: '}</strong>
           {brand}
         </div>
         <div className="app-proudct-item-content-info">
-          <strong>{'Modelo:'}</strong>
+          <strong>{'Modelo: '}</strong>
           {model}
         </div>
         <div className="app-proudct-item-content-info">
-          <strong>{'Precio:'}</strong>
+          <strong>{'Precio: '}</strong>
           {`${price} €`}
         </div>
       </div>

@@ -1,5 +1,5 @@
-import { getNextHourTime } from '../../utils/utils'
-import { FETCH_PRODUCT_LIST_SUCCESS } from '../actionTypes'
+import { getNextHourTime } from 'utils/utils'
+import { FETCH_PRODUCT_LIST_SUCCESS } from 'store/actionTypes'
 
 const initialState = {
   products: [],
@@ -13,7 +13,7 @@ const productListReducer = (state = initialState, action) => {
         ...state,
         products: action.payload.products,
         error: null,
-        timestamp: getNextHourTime(),
+        expiredTimestamp: getNextHourTime(),
       }
     // case FETCH_PODCASTS_LIST_FAILURE:
     //   return {

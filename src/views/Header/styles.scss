@@ -3,13 +3,12 @@
 
 .app-header {
     background-color: $blue-light;
-    height: 6vh;
+    height: 9vh;
     color:$white;
     padding: 0.7rem;
     @include flexbox($justifyContent: space-between);
     a {
         text-decoration: none;
-        font-size: 0.6rem;
     }
     &-shopping-cart {
         height: 100%;

@@ -1,8 +1,9 @@
 import { createContext, useContext, useMemo, useReducer } from 'react'
-import { useInitialAppState } from '../hooks'
+import { useInitialAppState } from 'hooks'
 import { rootReducer } from '../store'
 
-export const AppStateContext = createContext({})
+// @ts-ignore
+export const AppStateContext = createContext()
 
 export const AppProvider = ({ children }) => {
   const initialState = useInitialAppState()

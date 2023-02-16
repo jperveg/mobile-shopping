@@ -55,7 +55,7 @@ export function useRequest(request) {
 
   return {
     fetch,
-    fetchAsync: request,
+    // fetchAsync: request,
     data: state.data,
     error: state.error,
     isLoading: state.isLoading,

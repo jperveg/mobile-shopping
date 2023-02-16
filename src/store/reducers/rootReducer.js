@@ -1,10 +1,12 @@
 import productDetailsReducer from './productDetailsReducer'
+import productsInCartReducer from './productsInCartReducer'
 import productListReducer from './productsListReducer'
 
-export function rootReducer() {
+export const rootReducer = () => {
   const reducers = {
     products: productListReducer,
-    details: productDetailsReducer,
+    productDetailsById: productDetailsReducer,
+    cart: productsInCartReducer,
   }
 
   return (state = {}, action) => {

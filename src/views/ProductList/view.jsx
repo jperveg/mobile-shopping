@@ -1,4 +1,4 @@
-import { FormInput } from '../../components'
+import { FormInput } from 'components'
 import { ProductItem } from './ProductItem'
 import './styles.scss'
 

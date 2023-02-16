@@ -1,28 +1,42 @@
-import './styles.scss'
-import '../../index.scss'
+import { AppStateContext } from 'contexts/AppContext'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Breadcrumbs } from 'views/Breadcrumbs'
 import homeLogo from '../../assets/icons/homeLogo.svg'
 import shoppingCart from '../../assets/icons/shoppingCart.svg'
-
-const count = 3
+import 'index.scss'
+import './styles.scss'
 
 export const Header = () => {
+  const { state } = useContext(AppStateContext)
+  const {
+    cart: { numProductsInCart },
+  } = state
   return (
-    <header className="app-header">
-      <Link to="/">
-        <div className="app-header-logo flex-centered">
-          <img src={homeLogo} alt="logo" />
-          <p>{'Mobile shop'}</p>
+    <>
+      <header className="app-header">
+        <div className="flex-left-col">
+          <Link to="/">
+            <div className="app-header-logo flex-centered">
+              <img src={homeLogo} alt="logo" />
+              <p>{'Mobile shop'}</p>
+            </div>
+          </Link>
+          <Breadcrumbs />
         </div>
-      </Link>
-      <div className="app-header-shopping-cart flex-centered">
-        <img
-          src={shoppingCart}
-          className="app-header-shopping-cart-img"
-          alt="shoppingCart"
-        />
-        <div className="app-header-shopping-cart-counter">{count}</div>
-      </div>
-    </header>
+        <div className="app-header-shopping-cart flex-centered">
+          <img
+            src={shoppingCart}
+            className="app-header-shopping-cart-img"
+            alt="shoppingCart"
+          />
+          {numProductsInCart !== 0 && (
+            <div className="app-header-shopping-cart-counter">
+              {numProductsInCart}
+            </div>
+          )}
+        </div>
+      </header>
+    </>
   )
 }

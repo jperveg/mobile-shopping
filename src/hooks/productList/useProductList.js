@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const PRODUCTS_LIST = [
+export const PRODUCTS_LIST = [
   {
     id: '001',
     brand: 'Oppo',

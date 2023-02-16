@@ -1,29 +1,24 @@
-import { getNextHourTime } from '../../utils/utils'
-import { FETCH_PRODUCT_DEATAILS_SUCCESS } from '../actionTypes'
+import { getNextHourTime } from 'utils/utils'
+import { FETCH_PRODUCT_DEATAILS_SUCCESS } from 'store/actionTypes'
 
 const initialState = {
-  details: {},
+  productDetailsById: {},
 }
 
 const productDetailsReducer = (state = initialState, action) => {
   const { type, payload } = action
-  const details = payload.product ?? undefined
+  const productData = payload.product ?? undefined
   const product = {}
   switch (type) {
     case FETCH_PRODUCT_DEATAILS_SUCCESS:
-      product[details.id] = { ...details, timestamp: getNextHourTime() }
+      product[productData.id] = {
+        ...productData,
+        expiredTimestamp: getNextHourTime(),
+      }
       return {
         ...state,
-        details: { ...state.destails, ...product },
-        timestamp: getNextHourTime(),
+        productDetailsById: { ...state.productDetailsById, ...product },
       }
-    // case FETCH_PODCASTS_LIST_FAILURE:
-    //   return {
-    //     ...state,
-    //     products: [],
-    //     error: action.payload.error,
-    //     timestamp: null,
-    //   }
     default:
       return state
   }
